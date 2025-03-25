@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandeep M S - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f4a261;
+        }
+        section {
+            padding: 100px 50px;
+            text-align: center;
+            display: none;
+        }
+        #home {
+            display: block;
+        }
+        .project {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .project:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .project img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                <li><a href="#about" onclick="showSection('about')">About</a></li>
+                <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
+                <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+                <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Hi, I'm Sandeep M S, a passionate developer with a keen interest in software development and problem-solving.</p>
+    </section>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Motivated final-year Computer Science Engineering student with expertise in software development, web technologies, and database management.</p>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Programming Languages: Java, Python, SQL, OpenGL, C Programming</p>
+        <p>Web Technologies: HTML, CSS</p>
+        <p>Databases: MySQL</p>
+        <p>Operating Systems: Windows, Linux</p>
+    </section>
+    
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>Stay tuned for my latest articles on software development, emerging technologies, and programming insights.</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: sandeepms636@gmail.com</p>
+        <p>Phone: +91-9110862068</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sandeepms" target="_blank">linkedin.com/in/sandeepms</a></p>
+        <p>GitHub: <a href="https://github.com/sandeepms" target="_blank">github.com/sandeepms</a></p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project" onclick="showModal('Smart Parking System', 'Implemented a web-based parking solution using Node.js and MySQL.', 'smart_parkin.jpg')">
+            <h3>Smart Parking System</h3>
+            <img src="smart_parkin.jpg" alt="">
+        </div>
+        <div class="project" onclick="showModal('QR Based Attendance System', 'Developed a QR code-based system for attendance tracking with real-time updates.', 'qr_attendance.jpg')">
+            <h3>QR Based Attendance System</h3>
+            <img src="qr_attendance.jpg" alt="">
+        </div>
+    </section>
+    
+    <div id="modal" class="modal" style="display: none;">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <img id="modal-image" src="" alt="">
+        <button onclick="closeModal()">Close</button>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.style.display = "none";
+            });
+            let selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = "block";
+            }
+        }
+        
+        function showModal(title, description, imageSrc) {
+            document.getElementById("modal-title").textContent = title;
+            document.getElementById("modal-description").textContent = description;
+            document.getElementById("modal-image").src = imageSrc;
+            document.getElementById("modal").style.display = "block";
+        }
+        
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
